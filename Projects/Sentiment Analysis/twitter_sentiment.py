@@ -1,19 +1,19 @@
 import tweepy
 from textblob import TextBlob
+#api from twitter
+consumer_key = 'consumer_key'
+consumer_secret = 'consumer_secret'
+access_token = 'access_token'
+access_token_secret = 'access_token_secret'
 
-consumer_key = 'qc2hFYQAFbKJZh27sxVM3oaaR'
-consumer_secret = 'XZOm6eVNeWIGPQk5Oy0cmh0BIE2TcOnRtK7DVhKvsEVFqtA3Jk'
-
-access_token = '3683057592-d0NzBcHvYA71kkiXfLB2NB15NmezBcxCeECO6RM'
-access_token_secret = 'kxiKUnevd8DPhQXNNPtkgV4W7aobfkbtzG6sSznDR1Fp8'
-
+#authorizion method
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 
 api  = tweepy.API(auth)
-
-public_tweets = api.search('SRK')
-
+#search the information about the label
+public_tweets = api.search('Krishna')
+#loop through the tweet
 for tweet in public_tweets:
     print(tweet.text)
     analysis = TextBlob(tweet.text)
